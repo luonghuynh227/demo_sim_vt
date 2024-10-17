@@ -9,7 +9,7 @@ class ChatBot  {
     this.loading = false;
     this.pageCurrent = 1;
     this.allMessages = [];
-    this.userIdCookieName = 'chatVip338899';
+    this.userIdCookieName = 'chatGS_'+this.config.service;
     this.userId = '';
     this.isSend = false;
     
@@ -27,7 +27,7 @@ class ChatBot  {
       // if not cookies create news
       this.userId = this.generateUniqueId();
       // save cookie
-      this.setCookie(this.userIdCookieName, this.userId, 30); // Cookie 30 day
+      this.setCookie(this.userIdCookieName, this.userId, 365); // Cookie 635 day
     }
 
     this.loadCSS()
@@ -40,7 +40,7 @@ class ChatBot  {
     for (let i = 0; i < length; i++) {
         result += characters.charAt(Math.floor(Math.random() * characters.length));
     }
-    return result;
+    return this.config.service+'_'+result;
   }
   setCookie(name, value, days) {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
