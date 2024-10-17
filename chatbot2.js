@@ -19,6 +19,9 @@ class ChatBot  {
 
 
   initAll() {
+
+    
+
     this.userId = this.getCookie(this.userIdCookieName);
     if (!this.userId) {
       // if not cookies create news
@@ -182,7 +185,6 @@ class ChatBot  {
       // this.isClickOpenchat = true
     });
 
-    // Sự kiện click vào nút send
     const sendBtn = document.getElementById('sendBtn');
     const inputAsk = document.getElementById('input-ask');
     const textArea = document.querySelector('.textarea-content');
@@ -190,7 +192,7 @@ class ChatBot  {
 
     sendBtn.addEventListener('click', () => {
       if (inputAsk.value.trim() === '') {
-        sendBtn.disabled = true; 
+        alert('Vui lòng nhập gì đó!!')
       } else {
         const message = textArea.value.trim();
         if (message) {
