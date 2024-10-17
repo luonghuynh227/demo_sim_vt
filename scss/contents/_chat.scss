@@ -183,6 +183,10 @@
     &:hover {
       background: #f5f5f5;
     }
+    &:not(.active) {
+      pointer-events: none;
+      filter: grayscale(1);
+    }
   }
 }
 
