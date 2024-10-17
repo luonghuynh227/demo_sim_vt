@@ -31,7 +31,7 @@ class ChatBot  {
     }
 
     this.loadCSS()
-    this.loadChatForUser(this.userId);
+    
   }
 
   generateUniqueId(length = 30) {
@@ -110,6 +110,7 @@ class ChatBot  {
               mainBot.innerHTML = this.loadListChatFull();
               
               // get list chat fisrt load site
+              this.loadChatForUser(this.userId)
               const chatMessages = this.fakeData();
               this.renderMessages(chatMessages)
               // this.scrollBottomChat(chatList)
@@ -257,7 +258,7 @@ class ChatBot  {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          sender: 'Bot',
+          sender: this.userId,
           message: message
         })
       });
