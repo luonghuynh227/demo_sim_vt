@@ -12,15 +12,13 @@ class ChatBot  {
     this.userIdCookieName = 'chatVip338899';
     this.userId = '';
 
-    this.initAll()
+    this.init()
     // this.getData()
-    this.loadCSS()
+    
   }
 
 
-  initAll() {
-
-    
+  init() {
 
     this.userId = this.getCookie(this.userIdCookieName);
     if (!this.userId) {
@@ -30,6 +28,7 @@ class ChatBot  {
       this.setCookie(this.userIdCookieName, this.userId, 30); // Cookie 30 day
     }
 
+    this.loadCSS()
     this.loadChatForUser(this.userId);
   }
 
