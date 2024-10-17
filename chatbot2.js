@@ -34,7 +34,7 @@ class ChatBot  {
     
   }
 
-  generateUniqueId(length = 30) {
+  generateUniqueId(length = 50) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
     for (let i = 0; i < length; i++) {
