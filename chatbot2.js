@@ -259,9 +259,11 @@ class ChatBot  {
   }
 
   async sendMessageToBot(message) {
-    const loadingElem = document.querySelector('.row-loading');
+    // const loadingElems = document.querySelectorAll('.row-loading');
     this.loadingMessage()
+
     try {
+      // this.removeLoadingMessage()
       const response = await fetch(`${this.api}${this.config.code}`, {
         method: 'POST',
         headers: {
@@ -274,32 +276,22 @@ class ChatBot  {
       });
   
       if (!response.ok) {
+        this.removeLoadingMessage()
         this.appendMessageToChat('Lỗi khi gửi yêu cầu: ' + response.statusText); 
-        if (loadingElem) {
-          loadingElem.remove();
-        }
       }
   
       const data = await response.json();
   
       if (data && data.length > 0 && data[0].text) {
+        this.removeLoadingMessage()
         this.appendMessageToChat(data[0].text); 
-        if (loadingElem) {
-          loadingElem.remove();
-        }
       } else {
+        this.removeLoadingMessage();
         this.appendMessageToChat('Không có phản hồi hợp lệ từ chatbot. '); 
-        if (loadingElem) {
-          loadingElem.remove();
-        }
       }
     } catch (error) {
+      this.removeLoadingMessage()
       this.appendMessageToChat('Lỗi ko rõ nguồn gốc:', error); 
-      if (loadingElem) {
-        console.log('loadingElem')
-        console.log(loadingElem)
-        loadingElem.remove();
-      }
     }
   }
 
@@ -420,6 +412,13 @@ class ChatBot  {
     chatList.appendChild(newMessage);
   
     this.scrollBottomChat(chatList)
+  }
+
+  removeLoadingMessage() {
+    const loadingMessage = document.querySelector('.row-loading');
+    if (loadingMessage) {
+      loadingMessage.remove();
+    }
   }
   
   scrollBottomChat(chatList) {
