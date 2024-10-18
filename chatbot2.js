@@ -19,11 +19,12 @@ class ChatBot  {
     this.userIdCookieName = 'chatGS_'+this.config.service;
     this.userId = '';
     this.isSend = false;
+    this.isGetMesageServer = false
     
 
     this.init()
     // this.getData()
-    
+   
   }
 
 
@@ -63,13 +64,12 @@ class ChatBot  {
   checkInput() {
     
     const inputAsk = document.getElementById('input-ask');
-    if (inputAsk.value.trim() === '') {
+    if (inputAsk.value.trim() != '' && !this.isGetMesageServer) {
+      this.isSend = true; 
+      document.querySelector('.send-file').classList.add('active');
+    } else {
         this.isSend = false; 
-        
         document.querySelector('.send-file').classList.remove('active');
-      } else {
-        this.isSend = true; 
-        document.querySelector('.send-file').classList.add('active');
     }
   }
 
@@ -213,10 +213,10 @@ class ChatBot  {
     const inputAsk = document.getElementById('input-ask');
     const textArea = document.querySelector('.textarea-content');
     
-    inputAsk.addEventListener('input', this.checkInput.bind(this));
+    inputAsk.addEventListener('input', _this.checkInput.bind(_this));
 
     sendBtn.addEventListener('click', () => {
-      if (!this.isSend) {
+      if (!_this.isSend) {
         alert('Vui lòng nhập gì đó!!')
       } else {
         const message = textArea.value.trim();
@@ -230,15 +230,19 @@ class ChatBot  {
       
     });
     inputAsk.addEventListener('keydown', function(event) {
-      if (event.key === 'Enter' && !event.shiftKey) {
-        event.preventDefault();
-        const message = textArea.value.trim();
-        if (message) {
-          _this.appendUserMessageToChat(message); 
-          _this.sendMessageToBot(message)
-          textArea.value = ''; 
+      
+      if(!_this.isGetMesageServer) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+          event.preventDefault();
+          const message = textArea.value.trim();
+          if (message) {
+            _this.appendUserMessageToChat(message); 
+            _this.sendMessageToBot(message)
+            textArea.value = ''; 
+          }
         }
       }
+      
     });
     
 
@@ -250,7 +254,7 @@ class ChatBot  {
       }
     });
 
-    this.checkInput()
+    _this.checkInput()
   }
 
   getMessageInput() {
@@ -259,11 +263,12 @@ class ChatBot  {
   }
 
   async sendMessageToBot(message) {
-    // const loadingElems = document.querySelectorAll('.row-loading');
+
     this.loadingMessage()
 
     try {
-      // this.removeLoadingMessage()
+      this.isGetMesageServer = true
+
       const response = await fetch(`${this.api}${this.config.code}`, {
         method: 'POST',
         headers: {
@@ -278,6 +283,8 @@ class ChatBot  {
       if (!response.ok) {
         this.removeLoadingMessage()
         this.appendMessageToChat('Lỗi khi gửi yêu cầu: ' + response.statusText); 
+        this.isGetMesageServer = false
+        this.checkInput()
       }
   
       const data = await response.json();
@@ -285,13 +292,19 @@ class ChatBot  {
       if (data && data.length > 0 && data[0].text) {
         this.removeLoadingMessage()
         this.appendMessageToChat(data[0].text); 
+        this.isGetMesageServer = false
+        this.checkInput()
       } else {
         this.removeLoadingMessage();
         this.appendMessageToChat('Không có phản hồi hợp lệ từ chatbot. '); 
+        this.isGetMesageServer = false
+        this.checkInput()
       }
     } catch (error) {
       this.removeLoadingMessage()
       this.appendMessageToChat('Lỗi ko rõ nguồn gốc:', error); 
+      this.isGetMesageServer = false
+      this.checkInput()
     }
   }
 
