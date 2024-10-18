@@ -1,56 +1,56 @@
-.text {
-	margin-top: resize_vw(20, $pc);
-	font-size: resize_vw(14, $pc);
+.text-gs {
+	// margin-top: 20px;
+	font-size: 14px;
   font-weight: 400;
   @include devices(1000) {
-    // font-size: 15px;
+    font-size: 15px;
   }
 
   span.content-event-first {
     float: left;
-    font-size: resize_vw(40, $pc);
-    line-height: resize_vw(5, $pc);
-    margin: resize_vw(4, $pc) resize_vw(2, $pc) 0px 0px;
+    font-size: 40px;
+    line-height: 5px;
+    margin: 4 2 0px 0px;
   }
   h1,
   .content-event-h1 {
-    font-size: resize_vw(19, $pc);
+    font-size: 19px;
     color: #f57825;
     padding: 4px 0 8px 35px;
     position: relative;
     font-family: "cambriab";
     &:before {
-      content: "";
-      width: resize_vw(35, $pc);
-      height: resize_vw(25, $pc);
-      background: url(../images/h1.png) no-repeat center center;
-      background-size: 100%;
-      position: absolute;
-      left: 0;
-      top: resize_vw(3, $pc);
+      // content: "";
+      // width: resize_vw(35, $pc);
+      // height: 25px;
+      // background: url(../images/h1.png) no-repeat center center;
+      // background-size: 100%;
+      // position: absolute;
+      // left: 0;
+      // top: resize_vw(3, $pc);
     }
   }
   h2,
   .content-event-h2 {
-    margin-left: resize_vw(5, $pc);
-    font-size: resize_vw(16, $pc);
+    margin-left: 5px;
+    font-size: 16px;
     font-weight: bold;
-    padding-left: resize_vw(30, $pc);
+    padding-left: 30px;
     color: #f57825;
     // color: #693c03;
-    font-family: "cambriab";
-    margin-bottom: resize_vw(10, $pc);
-    margin-top: resize_vw(10, $pc);
+    // font-family: "cambriab";
+    margin-bottom: 10px;
+    margin-top: 10px;
     position: relative;
     &:before {
-      content: "";
-      width: resize_vw(25, $pc);
-      height: resize_vw(25, $pc);
-      background: url(../images/h2.png) no-repeat 1px 1px transparent;
-      background-size: 100%;
-      position: absolute;
-      left: 0;
-      top: 0px;
+      // content: "";
+      // width: 25px;
+      // height: 25px;
+      // background: url(../images/h2.png) no-repeat 1px 1px transparent;
+      // background-size: 100%;
+      // position: absolute;
+      // left: 0;
+      // top: 0px;
     }
   }
   a {
@@ -58,17 +58,17 @@
     font-weight: 500;
   }
   ul {
-    margin-left: resize_vw(25, $pc);
+    margin-left: 25px;
     li {
-      line-height: resize_vw(30, $pc);
+      line-height: 30px;
     }
   }
   p {
     // line-height: 30px;
-    margin-bottom: resize_vw(10, $pc);
+    margin-bottom: 10px;
     img {
-      margin-top: resize_vw(15, $pc);
-      margin-bottom: resize_vw(15, $pc);
+      margin-top: 15px;
+      margin-bottom: 15px;
       max-width: 100%;
       height: auto;
     }
@@ -77,8 +77,8 @@
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    margin-top: resize_vw(15, $pc);
-    margin-bottom: resize_vw(15, $pc);
+    margin-top: 15px;
+    margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
     @include devices(1024) {
@@ -88,16 +88,16 @@
       td {
         border: 1px solid #ddccdd;
         margin: 0;
-        padding: resize_vw(5, $pc);
+        padding: 5px;
         vertical-align: middle !important;
         text-align: center;
       }
       &:first-child {
         background: #f57825;
         td {
-          font-family: "cambriab";
+          // font-family: "cambriab";
           p {
-            font-family: "cambriab";
+            // font-family: "cambriab";
             color: #444444;
           }
         }
@@ -106,22 +106,22 @@
   }
   fieldset {
     border: 1px solid #ddccdd;
-    margin: resize_vw(20, $pc) 0;
-    padding: resize_vw(10, $pc);
+    margin: 20px 0;
+    padding: 10px;
     color: #2a2a2a;
     background: #f3f3f3;
     legend {
       color: white;
       background: #fb8142;
-      font-family: "cambriab";
-      padding: 0 resize_vw(15, $pc);
+      // font-family: "cambriab";
+      padding: 0 15px;
     }
     ul {
-      margin-left: resize_vw(15, $pc);
+      margin-left: 15px;
     }
   }
   strong {
-    font-family: "cambriab";
+    // font-family: "cambriab";
   }
   em {
     font-style: italic;
@@ -137,8 +137,8 @@ table {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: resize_vw(14, $pc);
-  margin-top: resize_vw(10, $pc);
+  font-size: 14px;
+  margin-top: 10px;
   thead {
     tr {
       background: #f57825;
@@ -150,7 +150,7 @@ table {
   tr {
     &:first-child td {
       // background-color: #fb8142;
-      color: $color_white;
+      color: #000;
       text-align: center;
       // padding: 10px;
     }
@@ -159,7 +159,7 @@ table {
       vertical-align: middle;
       font-weight: normal;
       text-align: center;
-      padding: resize_vw(5, $pc) 0px;
+      padding: 5px 0px;
     }
   }
 }

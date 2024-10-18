@@ -66,10 +66,10 @@ class ChatBot  {
     const inputAsk = document.getElementById('input-ask');
     if (inputAsk.value.trim() != '' && !this.isGetMesageServer) {
       this.isSend = true; 
-      document.querySelector('.send-file').classList.add('active');
+      document.querySelector('.send-file-gs').classList.add('active');
     } else {
         this.isSend = false; 
-        document.querySelector('.send-file').classList.remove('active');
+        document.querySelector('.send-file-gs').classList.remove('active');
     }
   }
 
@@ -85,7 +85,7 @@ class ChatBot  {
   loadCSS() {
     const style = document.createElement('style');
     style.innerHTML = `
-      .f-tahoma{font-family:"tahoma"}.f-tahomabold{font-family:"tahomabold"}.f-tahoma{font-family:"tahoma"}.f-uvn_laclongquanbold{font-family:"uvn_laclongquanbold"}*{-webkit-box-sizing:border-box;box-sizing:border-box}.a100{width:100%;height:100%;display:block}.d-flex{display:-webkit-box;display:-ms-flexbox;display:flex}.a-center{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.j-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.f-d-column{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.flex-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.h-100-percent{height:100%}button{border:none;background:transparent}.o-hide{overflow:hidden}.p-relative{position:relative}.p-absolute{position:absolute}.m-auto{margin-left:auto;margin-right:auto}.c-pointer{cursor:pointer}.t-upper{text-transform:uppercase}.t-center{text-align:center}.t-under{text-decoration:underline!important}.c-black{color:#000!important}.c-white{color:#fff!important}body{margin:0;padding:0}.wrap-main-bot{z-index:9;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif}.button-show-main-bot{cursor:pointer;position:fixed;bottom:20px;right:15px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:56px;width:56px;cursor:pointer;z-index:8;border-radius:50%;-webkit-transition:-webkit-transform 0.3s ease;transition:-webkit-transform 0.3s ease;transition:transform 0.3s ease;transition:transform 0.3s ease,-webkit-transform 0.3s ease;background:#fff;-webkit-box-shadow:1px 2px 4px rgba(0,0,0,0.2);box-shadow:1px 2px 4px rgba(0,0,0,0.2);overflow:hidden}.button-show-main-bot img{height:56px;width:56px}.main-bot{position:fixed;z-index:9;width:calc(100% - 30px);height:calc(98% - 30px);min-height:400px;max-height:1200px;bottom:15px;right:15px;background-color:#fff;border-radius:8px;-webkit-box-shadow:0 6px 8px 0 rgba(29,28,35,0.06),0 0 2px 0 rgba(29,28,35,0.18);box-shadow:0 6px 8px 0 rgba(29,28,35,0.06),0 0 2px 0 rgba(29,28,35,0.18)}@media only screen and (min-width:768px){.main-bot{width:460px}}.main-bot.open{display:block}.body-main-bot{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;height:100%}.header-bot{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:56px;padding:0 16px;border-bottom:1px solid rgba(29,28,35,0.0784313725)}.header-bot .logo-name-header{gap:0 6px}.header-bot .logo-name-header img{width:32px}.btn-close{margin-left:auto}.main-list-chat{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto;min-height:0;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.main-list-chat .detail-list-chat{height:calc(100% - 50px);overflow-y:auto;padding-bottom:70px;-webkit-mask:-webkit-gradient(linear,left top,left bottom,color-stop(91.89%,#fff),to(rgba(255,255,255,0)));-webkit-mask:linear-gradient(180deg,#fff 91.89%,rgba(255,255,255,0) 100%);mask:-webkit-gradient(linear,left top,left bottom,color-stop(91.89%,#fff),to(rgba(255,255,255,0)));mask:linear-gradient(180deg,#fff 91.89%,rgba(255,255,255,0) 100%)}.main-list-chat .detail-list-chat::-webkit-scrollbar{width:2px}.main-list-chat .detail-list-chat::-webkit-scrollbar-thumb{background:#b5b5b5}.main-list-chat .detail-list-chat::-webkit-scrollbar-track{background:#f5f5f5}.row-chat{padding:15px;gap:15px 10px}.row-chat.user{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.row-chat .logo-chat{width:32px}.row-chat .logo-chat img{width:100%}.row-chat .name-chat-message{max-width:65%}.row-chat .name-chat-message .name-user{margin-bottom:5px}.row-chat .name-chat-message .all-message{background:#f5f5f5;border-radius:10px;padding:10px}.control-chat-message{z-index:9;background:#fff;width:93%;height:60px;bottom:2%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);border-radius:35px;border:2px solid #f5f5f5}.control-chat-message textarea::-webkit-input-placeholder{color:#828384}.control-chat-message textarea::-moz-placeholder{color:#828384}.control-chat-message textarea:-ms-input-placeholder{color:#828384}.control-chat-message textarea::-ms-input-placeholder{color:#828384}.control-chat-message textarea::placeholder{color:#828384}.control-chat-message .textarea-content{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;padding:0;overflow-y:hidden;resize:none;height:45px;line-height:45px;min-height:20px;max-height:100px;background:transparent;border:0;width:80%;left:10%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);border:none;overflow:auto;outline:none;-webkit-box-shadow:none;box-shadow:none;resize:none}.control-chat-message .textarea-content:hover{border:none}.control-chat-message .add-file{border-radius:10px;padding:3px 7px;left:3%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.control-chat-message .add-file svg{color:#828384}.control-chat-message .add-file:hover{background:#f5f5f5}.control-chat-message .send-file{border-radius:10px;padding:3px 7px;right:3%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.control-chat-message .send-file svg{color:#828384}.control-chat-message .send-file:hover{background:#f5f5f5}.control-chat-message .send-file:not(.active){pointer-events:none;-webkit-filter:grayscale(1);filter:grayscale(1)}.message-loading .loading-dot{border-radius:50%;-webkit-animation:dot ease-in-out 0.85s infinite;animation:dot ease-in-out 0.85s infinite;background-color:grey;display:inline-block;height:6px;width:6px;margin:2px}.message-loading .loading-dot:first-child{-webkit-animation-delay:0.2s;animation-delay:0.2s}.message-loading .loading-dot:nth-child(2){-webkit-animation-delay:0.3s;animation-delay:0.3s}.message-loading .loading-dot:nth-child(3){-webkit-animation-delay:0.4s;animation-delay:0.4s}.message-loading .loading-dot:nth-child(4){-webkit-animation-delay:0.5s;animation-delay:0.5s}.message-loading .loading-dot:nth-child(5){-webkit-animation-delay:0.6s;animation-delay:0.6s}.message-loading .loading-dot:nth-child(6){-webkit-animation-delay:0.7s;animation-delay:0.7s}.footer-bot{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;height:32px;border-radius:0 0 8px 8px;background-color:rgba(46,46,56,0.0392156863);font-size:clamp(10px,2vw,13px)}@-webkit-keyframes dot{0%{background-color:grey;-webkit-transform:scale(1);transform:scale(1)}50%{background-color:#ed8b33;-webkit-transform:scale(1.3);transform:scale(1.3)}to{background-color:grey;-webkit-transform:scale(1);transform:scale(1)}}@keyframes dot{0%{background-color:grey;-webkit-transform:scale(1);transform:scale(1)}50%{background-color:#ed8b33;-webkit-transform:scale(1.3);transform:scale(1.3)}to{background-color:grey;-webkit-transform:scale(1);transform:scale(1)}}
+      .f-tahoma{font-family:"tahoma"}.f-tahomabold{font-family:"tahomabold"}*{-webkit-box-sizing:border-box;box-sizing:border-box}.a100{width:100%;height:100%;display:block}.d-flex{display:-webkit-box;display:-ms-flexbox;display:flex}.a-center{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.j-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.f-d-column{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.flex-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.h-100-percent{height:100%}button{border:none;background:transparent}.o-hide{overflow:hidden}.p-relative{position:relative}.p-absolute{position:absolute}.m-auto{margin-left:auto;margin-right:auto}.c-pointer{cursor:pointer}.t-upper{text-transform:uppercase}.t-center{text-align:center}.t-under{text-decoration:underline!important}.c-black{color:#000!important}.c-white{color:#fff!important}body{margin:0;padding:0}.wrap-main-bot-gs{z-index:9;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif}.wrap-main-bot-gs .button-show-main-bot-gs{cursor:pointer;position:fixed;bottom:20px;right:15px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:56px;width:56px;cursor:pointer;z-index:8;border-radius:50%;-webkit-transition:-webkit-transform 0.3s ease;transition:-webkit-transform 0.3s ease;transition:transform 0.3s ease;transition:transform 0.3s ease,-webkit-transform 0.3s ease;background:#fff;-webkit-box-shadow:1px 2px 4px rgba(0,0,0,0.2);box-shadow:1px 2px 4px rgba(0,0,0,0.2);overflow:hidden}.wrap-main-bot-gs .button-show-main-bot-gs img{height:56px;width:56px}.wrap-main-bot-gs .main-bot-gs{position:fixed;z-index:9;width:calc(100% - 30px);height:calc(98% - 30px);min-height:400px;max-height:1200px;bottom:15px;right:15px;background-color:#fff;border-radius:8px;-webkit-box-shadow:0 6px 8px 0 rgba(29,28,35,0.06),0 0 2px 0 rgba(29,28,35,0.18);box-shadow:0 6px 8px 0 rgba(29,28,35,0.06),0 0 2px 0 rgba(29,28,35,0.18)}@media only screen and (min-width:768px){.wrap-main-bot-gs .main-bot-gs{width:460px}}.wrap-main-bot-gs .main-bot-gs.open{display:block}.wrap-main-bot-gs .body-main-bot-gs{-webkit-box-sizing:border-box;box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;height:100%}.wrap-main-bot-gs .header-bot-gs{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:56px;padding:0 16px;border-bottom:1px solid rgba(29,28,35,0.0784313725)}.wrap-main-bot-gs .header-bot-gs .logo-name-header-gs{gap:0 6px}.wrap-main-bot-gs .header-bot-gs .logo-name-header-gs img{width:32px}.wrap-main-bot-gs .btn-close-bot-gs{margin-left:auto}.wrap-main-bot-gs .main-list-chat-gs{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto;min-height:0;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.wrap-main-bot-gs .main-list-chat-gs .detail-list-chat-gs{height:calc(100% - 50px);overflow-y:auto;padding-bottom:70px;-webkit-mask:-webkit-gradient(linear,left top,left bottom,color-stop(91.89%,#fff),to(rgba(255,255,255,0)));-webkit-mask:linear-gradient(180deg,#fff 91.89%,rgba(255,255,255,0) 100%);mask:-webkit-gradient(linear,left top,left bottom,color-stop(91.89%,#fff),to(rgba(255,255,255,0)));mask:linear-gradient(180deg,#fff 91.89%,rgba(255,255,255,0) 100%)}.wrap-main-bot-gs .main-list-chat-gs .detail-list-chat-gs::-webkit-scrollbar{width:2px}.wrap-main-bot-gs .main-list-chat-gs .detail-list-chat-gs::-webkit-scrollbar-thumb{background:#b5b5b5}.wrap-main-bot-gs .main-list-chat-gs .detail-list-chat-gs::-webkit-scrollbar-track{background:#f5f5f5}.wrap-main-bot-gs .row-chat-gs{padding:15px;gap:15px 10px}.wrap-main-bot-gs .row-chat-gs.user{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.wrap-main-bot-gs .row-chat-gs .logo-chat-gs{width:32px}.wrap-main-bot-gs .row-chat-gs .logo-chat-gs img{width:100%}.wrap-main-bot-gs .row-chat-gs .name-chat-message-gs{max-width:80%}.wrap-main-bot-gs .row-chat-gs .name-chat-message-gs .name-user-gs{margin-bottom:5px}.wrap-main-bot-gs .row-chat-gs .name-chat-message-gs .all-message-gs{background:#f5f5f5;border-radius:10px;padding:10px}.wrap-main-bot-gs .control-chat-message-gs{z-index:9;background:#fff;width:93%;height:60px;bottom:2%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);border-radius:35px;border:2px solid #f5f5f5}.wrap-main-bot-gs .control-chat-message-gs textarea::-webkit-input-placeholder{color:#828384}.wrap-main-bot-gs .control-chat-message-gs textarea::-moz-placeholder{color:#828384}.wrap-main-bot-gs .control-chat-message-gs textarea:-ms-input-placeholder{color:#828384}.wrap-main-bot-gs .control-chat-message-gs textarea::-ms-input-placeholder{color:#828384}.wrap-main-bot-gs .control-chat-message-gs textarea::placeholder{color:#828384}.wrap-main-bot-gs .control-chat-message-gs .textarea-content-gs{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;padding:0;overflow-y:hidden;resize:none;height:45px;line-height:45px;min-height:20px;max-height:100px;background:transparent;border:0;width:80%;left:10%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);border:none;overflow:auto;outline:none;-webkit-box-shadow:none;box-shadow:none;resize:none}.wrap-main-bot-gs .control-chat-message-gs .textarea-content-gs:hover{border:none}.wrap-main-bot-gs .control-chat-message-gs .add-file-gs{border-radius:10px;padding:3px 7px;left:3%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.wrap-main-bot-gs .control-chat-message-gs .add-file-gs svg{color:#828384}.wrap-main-bot-gs .control-chat-message-gs .add-file-gs:hover{background:#f5f5f5}.wrap-main-bot-gs .control-chat-message-gs .send-file-gs{border-radius:10px;padding:3px 7px;right:3%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.wrap-main-bot-gs .control-chat-message-gs .send-file-gs svg{color:#828384}.wrap-main-bot-gs .control-chat-message-gs .send-file-gs:hover{background:#f5f5f5}.wrap-main-bot-gs .control-chat-message-gs .send-file-gs:not(.active){pointer-events:none;-webkit-filter:grayscale(1);filter:grayscale(1)}.wrap-main-bot-gs .message-loading-gs .loading-dot-gs{border-radius:50%;-webkit-animation:dot ease-in-out 0.85s infinite;animation:dot ease-in-out 0.85s infinite;background-color:grey;display:inline-block;height:6px;width:6px;margin:2px}.wrap-main-bot-gs .message-loading-gs .loading-dot-gs:first-child{-webkit-animation-delay:0.2s;animation-delay:0.2s}.wrap-main-bot-gs .message-loading-gs .loading-dot-gs:nth-child(2){-webkit-animation-delay:0.3s;animation-delay:0.3s}.wrap-main-bot-gs .message-loading-gs .loading-dot-gs:nth-child(3){-webkit-animation-delay:0.4s;animation-delay:0.4s}.wrap-main-bot-gs .message-loading-gs .loading-dot-gs:nth-child(4){-webkit-animation-delay:0.5s;animation-delay:0.5s}.wrap-main-bot-gs .message-loading-gs .loading-dot-gs:nth-child(5){-webkit-animation-delay:0.6s;animation-delay:0.6s}.wrap-main-bot-gs .message-loading-gs .loading-dot-gs:nth-child(6){-webkit-animation-delay:0.7s;animation-delay:0.7s}.wrap-main-bot-gs .footer-bot-gs{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;height:32px;border-radius:0 0 8px 8px;background-color:rgba(46,46,56,0.0392156863);font-size:clamp(10px,2vw,13px)}@-webkit-keyframes dot{0%{background-color:grey;-webkit-transform:scale(1);transform:scale(1)}50%{background-color:#ed8b33;-webkit-transform:scale(1.3);transform:scale(1.3)}to{background-color:grey;-webkit-transform:scale(1);transform:scale(1)}}@keyframes dot{0%{background-color:grey;-webkit-transform:scale(1);transform:scale(1)}50%{background-color:#ed8b33;-webkit-transform:scale(1.3);transform:scale(1.3)}to{background-color:grey;-webkit-transform:scale(1);transform:scale(1)}}.text-gs{font-size:14px;font-weight:400}@media only screen and (min-width:1000px){.text-gs{font-size:15px}}.text-gs span.content-event-first{float:left;font-size:40px;line-height:5px;margin:4 2 0px 0px}.text-gs .content-event-h1,.text-gs h1{font-size:19px;color:#f57825;padding:4px 0 8px 35px;position:relative;font-family:"cambriab"}.text-gs .content-event-h2,.text-gs h2{margin-left:5px;font-size:16px;font-weight:bold;padding-left:30px;color:#f57825;margin-bottom:10px;margin-top:10px;position:relative}.text-gs a{color:#1e88d2;font-weight:500}.text-gs ul{margin-left:25px}.text-gs ul li{line-height:30px}.text-gs p{margin-bottom:10px}.text-gs p img{margin-top:15px;margin-bottom:15px;max-width:100%;height:auto}.text-gs table{width:100%;border-collapse:collapse;border-spacing:0;margin-top:15px;margin-bottom:15px;margin-left:auto;margin-right:auto}@media only screen and (min-width:1024px){.text-gs table{width:auto}}.text-gs table tr td{border:1px solid #ddccdd;margin:0;padding:5px;vertical-align:middle!important;text-align:center}.text-gs table tr:first-child{background:#f57825}.text-gs table tr:first-child td p{color:#444444}.text-gs fieldset{border:1px solid #ddccdd;margin:20px 0;padding:10px;color:#2a2a2a;background:#f3f3f3}.text-gs fieldset legend{color:white;background:#fb8142;padding:0 15px}.text-gs fieldset ul{margin-left:15px}.text-gs em{font-style:italic}table img{display:block}table{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}table thead tr{background:#f57825}table thead tr td{color:#ffffff}table tr:first-child td{color:#000;text-align:center}table tr td{border:1px solid #ddccdd;vertical-align:middle;font-weight:normal;text-align:center;padding:5px 0px}
     `;
     document.head.appendChild(style); 
 
@@ -94,21 +94,21 @@ class ChatBot  {
   }
 
   loadChatbotUI() {
-    const chatList = document.querySelector('.detail-list-chat');
+    const chatList = document.querySelector('.detail-list-chat-gs');
     const chatBotContainer = document.createElement('div');
-    chatBotContainer.className = 'wrap-main-bot';
+    chatBotContainer.className = 'wrap-main-bot-gs';
     chatBotContainer.innerHTML = `
-     <div class="button-show-main-bot">
+     <div class="button-show-main-bot-gs">
         <img src="${this.componentProps.iconBot}" alt="Click">
       </div>
-      <div class="main-bot" style="display: none;">
+      <div class="main-bot-gs" style="display: none;">
       </div>
     `;
        
     document.body.appendChild(chatBotContainer);
 
-    const mainBot = document.querySelector('.main-bot');
-    document.querySelector('.button-show-main-bot').addEventListener('click', () => {
+    const mainBot = document.querySelector('.main-bot-gs');
+    document.querySelector('.button-show-main-bot-gs').addEventListener('click', () => {
       if (mainBot.style.display === 'none' || mainBot.style.display === '') {
           mainBot.style.display = 'block';
           if (mainBot) {
@@ -136,14 +136,14 @@ class ChatBot  {
   loadHeaderUI() {
     return `
     
-      <div class="header-bot">
-        <div class="logo-name-header d-flex a-center">
-          <div class="logo">
+      <div class="header-bot-gs">
+        <div class="logo-name-header-gs d-flex a-center">
+          <div class="logo-gs">
             <img src="${this.componentProps.iconBot}" alt="Icon">
           </div>
-          <div class="name-bot">${this.componentProps.title}</div>
+          <div class="name-bot-gs">${this.componentProps.title}</div>
         </div>
-        <div class="btn-close c-pointer">
+        <div class="btn-close-bot-gs c-pointer">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" focusable="false" aria-hidden="true"><path d="M17.6568 19.7782C18.2426 20.3639 19.1924 20.3639 19.7782 19.7782C20.3639 19.1924 20.3639 18.2426 19.7782 17.6568L14.1213 12L19.7782 6.34313C20.3639 5.75734 20.3639 4.8076 19.7782 4.22181C19.1924 3.63602 18.2426 3.63602 17.6568 4.22181L12 9.87866L6.34313 4.22181C5.75734 3.63602 4.8076 3.63602 4.22181 4.22181C3.63602 4.8076 3.63602 5.75734 4.22181 6.34313L9.87866 12L4.22181 17.6568C3.63602 18.2426 3.63602 19.1924 4.22181 19.7782C4.8076 20.3639 5.75734 20.3639 6.34313 19.7782L12 14.1213L17.6568 19.7782Z" fill="currentColor"></path></svg>
         </div>
       </div>
@@ -152,7 +152,7 @@ class ChatBot  {
   }
   loadFooterUI() {
     return `
-      <footer class="footer-bot">
+      <footer class="footer-bot-gs">
         Powered by .... AI-generated content for reference only.
       </footer>
     `;
@@ -162,14 +162,14 @@ class ChatBot  {
   //  <input class="textarea-content p-absolute" placeholder="Message Chat" id="input-ask">
   loadControlUI() {
     return `
-    <div class="control-chat-message p-absolute">
-      <textarea class="textarea-content p-absolute" placeholder="Message Chat" id="input-ask"></textarea>
+    <div class="control-chat-message-gs p-absolute">
+      <textarea class="textarea-content-gs p-absolute" placeholder="Message Chat" id="input-ask"></textarea>
       
      
-      <div class="add-file p-absolute c-pointer">
+      <div class="add-file-gs p-absolute c-pointer">
         <svg class="icon-icon icon-icon-coz_plus_circle coz-fg-primary text-xxl" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11 8V11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13H11V16C11 16.5523 11.4477 17 12 17C12.5523 17 13 16.5523 13 16V13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"></path></svg>
       </div>
-      <div class="send-file p-absolute c-pointer "  id="sendBtn">
+      <div class="send-file-gs p-absolute c-pointer "  id="sendBtn">
         <svg class="icon-icon icon-icon-coz_send_fill text-xxl" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21.4159 13.3153C21.8961 13.0536 22.1965 12.5506 22.1965 11.9998C22.1965 11.449 21.8961 10.9483 21.4159 10.6865L3.99982 1.25701C3.53551 1.00437 2.98699 1.01575 2.53179 1.2866C2.07659 1.55744 1.80347 2.03768 1.80347 2.57027L3.725 10.0755L11.8947 11.2715C12.363 11.2715 12.7414 11.5969 12.7414 11.9998C12.7414 12.4026 12.363 12.7281 11.8947 12.7281C7.2906 13.4031 4.56846 13.799 3.72825 13.9159L1.80347 21.4293C1.80347 21.9619 2.07659 22.4421 2.53179 22.7153C2.98699 22.9861 3.53551 22.9975 3.99982 22.7448L21.4159 13.3153Z"></path></svg>
       </div>
     </div>
@@ -179,13 +179,13 @@ class ChatBot  {
   loadListChatFull() {
 
     return `
-      <div class="main-bot">
-        <div class="body-main-bot">
+      <div class="main-bot-gs">
+        <div class="body-main-bot-gs">
 
           ${this.loadHeaderUI()}
 
-          <div class="main-list-chat p-relative">
-            <div class="detail-list-chat"  id="message-container">
+          <div class="main-list-chat-gs p-relative">
+            <div class="detail-list-chat-gs"  id="message-container">
 
             </div>
 
@@ -205,14 +205,14 @@ class ChatBot  {
   loadButtonListieners() {
     let _this = this
 
-    document.querySelector('.btn-close').addEventListener('click', () => {
-      document.querySelector('.main-bot').style.display = 'none';
+    document.querySelector('.btn-close-bot-gs').addEventListener('click', () => {
+      document.querySelector('.main-bot-gs').style.display = 'none';
       // this.isClickOpenchat = true
     });
 
     const sendBtn = document.getElementById('sendBtn');
     const inputAsk = document.getElementById('input-ask');
-    const textArea = document.querySelector('.textarea-content');
+    const textArea = document.querySelector('.textarea-content-gs');
     
     inputAsk.addEventListener('input', _this.checkInput.bind(_this));
 
@@ -225,7 +225,7 @@ class ChatBot  {
           _this.appendUserMessageToChat(message); 
           _this.sendMessageToBot(message)
           textArea.value = ''; 
-          document.querySelector('.send-file').classList.remove('active');
+          document.querySelector('.send-file-gs').classList.remove('active');
         }
       }
       
@@ -251,7 +251,7 @@ class ChatBot  {
     listScroll.addEventListener('scroll', () => {
       if (listScroll.scrollTop === 0 && !_this.loading) {
         _this.pageCurrent++;
-        _this.fetchMessageServer(_this.pageCurrent)
+        // _this.fetchMessageServer(_this.pageCurrent)
       }
     });
 
@@ -334,14 +334,14 @@ class ChatBot  {
 
     messages.forEach(message => {
         const messageHTML = `
-          <div class="row-chat d-flex ${message.user === 'user' ? 'user' : 'bot'}">
-            <div class="logo-user-chat logo-chat">
+          <div class="row-chat-gs d-flex ${message.user === 'user' ? 'user' : 'bot'}">
+            <div class="logo-user-chat-gs logo-chat-gs">
                 <img src="${message.user === 'user' ? `${this.componentProps.iconUser}` : `${this.componentProps.iconBot}` }" alt="">
             </div>
-            <div class="name-chat-message">
+            <div class="name-chat-message-gs">
                 ${message.user === 'user' ? '' : `<div class="name-user">${this.componentProps.nameBotShowChat}</div>`}
-                <div class="all-message">
-                    <div class="pure-message">${message.text}</div>
+                <div class="all-message-gs">
+                    <div class="pure-message-gs text-gs">${message.text}</div>
                 </div>
             </div>
           </div>
@@ -352,17 +352,17 @@ class ChatBot  {
 
 
   appendUserMessageToChat(userMessage) {
-    const chatList = document.querySelector('.detail-list-chat');
+    const chatList = document.querySelector('.detail-list-chat-gs');
   
     const newMessage = document.createElement('div');
-    newMessage.className = 'row-chat d-flex user';
+    newMessage.className = 'row-chat-gs d-flex user';
     newMessage.innerHTML = `
-      <div class="logo-user-chat logo-chat">
+      <div class="logo-user-chat-gs logo-chat-gs">
         <img src="${this.componentProps.iconUser}" alt="">
       </div>
-      <div class="name-chat-message">
-        <div class="all-message">
-          <div class="pure-message">${userMessage}</div>
+      <div class="name-chat-message-gs">
+        <div class="all-message-gs">
+          <div class="pure-message-gs text-gs">${userMessage}</div>
         </div>
       </div>
     `;
@@ -378,18 +378,18 @@ class ChatBot  {
   }
 
   appendMessageToChat(replyMessage) {
-    const chatList = document.querySelector('.detail-list-chat');
+    const chatList = document.querySelector('.detail-list-chat-gs');
   
     const newMessage = document.createElement('div');
-    newMessage.className = 'row-chat d-flex bot';
+    newMessage.className = 'row-chat-gs d-flex bot';
     newMessage.innerHTML = `
-      <div class="logo-user-chat logo-chat">
+      <div class="logo-user-chat-gs logo-chat-gs">
         <img src="${this.componentProps.iconBot}" alt="">
       </div>
-      <div class="name-chat-message">
-        <div class="name-user">${this.componentProps.nameBotShowChat}</div>
-        <div class="all-message">
-          <div class="pure-message">${replyMessage}</div>
+      <div class="name-chat-message-gs">
+        <div class="name-user-gs">${this.componentProps.nameBotShowChat}</div>
+        <div class="all-message-gs">
+          <div class="pure-message-gs text-gs">${replyMessage}</div>
         </div>
       </div>
     `;
@@ -402,22 +402,22 @@ class ChatBot  {
   
   loadingMessage() {
     
-    const chatList = document.querySelector('.detail-list-chat');
+    const chatList = document.querySelector('.detail-list-chat-gs');
   
     const newMessage = document.createElement('div');
-    newMessage.className = 'row-chat d-flex bot row-loading';
+    newMessage.className = 'row-chat-gs d-flex bot row-loading-gs';
     newMessage.innerHTML = `
-      <div class="logo-user-chat logo-chat">
+      <div class="logo-user-chat-gs logo-chat-gs">
         <img src="${this.componentProps.iconBot}" alt="">
       </div>
-      <div class="name-chat-message">
-        <div class="name-user">${this.componentProps.nameBotShowChat}</div>
-        <div class="all-message">
-          <div class="pure-message message-loading d-flex a-center j-center">
-              <div class="loading-dot"></div>
-              <div class="loading-dot"></div>
-              <div class="loading-dot"></div>
-              <div class="loading-dot"></div>
+      <div class="name-chat-message-gs">
+        <div class="name-user-gs">${this.componentProps.nameBotShowChat}</div>
+        <div class="all-message-gs">
+          <div class="pure-message-gs message-loading-gs d-flex a-center j-center">
+              <div class="loading-dot-gs"></div>
+              <div class="loading-dot-gs"></div>
+              <div class="loading-dot-gs"></div>
+              <div class="loading-dot-gs"></div>
             </div>
         </div>
       </div>
@@ -429,7 +429,7 @@ class ChatBot  {
   }
 
   removeLoadingMessage() {
-    const loadingMessage = document.querySelector('.row-loading');
+    const loadingMessage = document.querySelector('.row-loading-gs');
     if (loadingMessage) {
       loadingMessage.remove();
     }
