@@ -1,11 +1,12 @@
 .wrap-main-bot {
   z-index: 9;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .button-show-main-bot {
   cursor: pointer;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,12 +30,12 @@
 .main-bot {
   position: fixed;
   z-index: 9;
-  width: calc(100% - 40px);
-  height: calc(98% - 40px);
+  width: calc(100% - 30px);
+  height: calc(98% - 30px);
   min-height: 400px;
   max-height: 1200px;
-  bottom: 20px;
-  right: 20px;
+  bottom: 15px;
+  right: 15px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 6px 8px 0 rgba(29, 28, 35, 0.06), 0 0 2px 0 rgba(29, 28, 35, 0.18);
@@ -142,6 +143,7 @@
     color: #828384; /* Change this to your desired color */
   }
   .textarea-content {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 0;
     overflow-y: hidden;
     resize: none;
@@ -157,6 +159,18 @@
     top: 50%;
 
     transform: translateY(-50%);
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none;
+    &:hover {
+      border: none;
+    }
   }
   .add-file {
     border-radius: 10px;
