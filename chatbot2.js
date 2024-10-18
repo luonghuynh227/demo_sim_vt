@@ -114,7 +114,7 @@ class ChatBot  {
           if (mainBot) {
             
             if(!this.isClickOpenchat) {
-              
+              this.isClickOpenchat = true
               mainBot.innerHTML = this.loadListChatFull();
               
               // get list chat fisrt load site
