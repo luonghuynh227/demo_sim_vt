@@ -3,8 +3,15 @@ class ChatBot  {
   
 
   constructor(options) {
-    this.config = options.config || {}
-    this.componentProps = options.componentProps || {}
+    this.api = 'http://192.168.90.194:5005/webhooks/rest/webhook'
+    this.config = options.config || { code: '', service: 'g_GOSU', bot_id: ''}
+    this.componentProps = options.componentProps || {
+      title: 'Chat Bot GOSU',
+      nameBotShowChat: 'Bot',
+      iconBot: 'images/icon-gs.png',
+      iconUser: 'images/user.png',
+    }
+    
     this.isClickOpenchat = false
     this.loading = false;
     this.pageCurrent = 1;
@@ -91,7 +98,7 @@ class ChatBot  {
     chatBotContainer.className = 'wrap-main-bot';
     chatBotContainer.innerHTML = `
      <div class="button-show-main-bot">
-        <img src="${this.componentProps.iconBot || 'images/icon-gs.png'}" alt="Click">
+        <img src="${this.componentProps.iconBot}" alt="Click">
       </div>
       <div class="main-bot" style="display: none;">
       </div>
@@ -131,9 +138,9 @@ class ChatBot  {
       <div class="header-bot">
         <div class="logo-name-header d-flex a-center">
           <div class="logo">
-            <img src="${this.componentProps.iconBot || 'images/icon-gs.png'}" alt="Icon">
+            <img src="${this.componentProps.iconBot}" alt="Icon">
           </div>
-          <div class="name-bot">${this.componentProps.title || 'Chat Assistant'}</div>
+          <div class="name-bot">${this.componentProps.title}</div>
         </div>
         <div class="btn-close c-pointer">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" focusable="false" aria-hidden="true"><path d="M17.6568 19.7782C18.2426 20.3639 19.1924 20.3639 19.7782 19.7782C20.3639 19.1924 20.3639 18.2426 19.7782 17.6568L14.1213 12L19.7782 6.34313C20.3639 5.75734 20.3639 4.8076 19.7782 4.22181C19.1924 3.63602 18.2426 3.63602 17.6568 4.22181L12 9.87866L6.34313 4.22181C5.75734 3.63602 4.8076 3.63602 4.22181 4.22181C3.63602 4.8076 3.63602 5.75734 4.22181 6.34313L9.87866 12L4.22181 17.6568C3.63602 18.2426 3.63602 19.1924 4.22181 19.7782C4.8076 20.3639 5.75734 20.3639 6.34313 19.7782L12 14.1213L17.6568 19.7782Z" fill="currentColor"></path></svg>
@@ -252,7 +259,7 @@ class ChatBot  {
 
   async sendMessageToBot(message) {
     try {
-      const response = await fetch(`${this.config.api}`, {
+      const response = await fetch(`${this.api}${this.config.code}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -306,10 +313,10 @@ class ChatBot  {
         const messageHTML = `
           <div class="row-chat d-flex ${message.user === 'user' ? 'user' : 'bot'}">
             <div class="logo-user-chat logo-chat">
-                <img src="${message.user === 'user' ? `${this.componentProps.iconUser || "images/user.png"}` : `${this.componentProps.iconBot || "images/icon-gs.png"}` }" alt="">
+                <img src="${message.user === 'user' ? `${this.componentProps.iconUser}` : `${this.componentProps.iconBot}` }" alt="">
             </div>
             <div class="name-chat-message">
-                ${message.user === 'user' ? '' : `<div class="name-user">${this.componentProps.nameBotShowChat || "Bot"}</div>`}
+                ${message.user === 'user' ? '' : `<div class="name-user">${this.componentProps.nameBotShowChat}</div>`}
                 <div class="all-message">
                     <div class="pure-message">${message.text}</div>
                 </div>
@@ -328,7 +335,7 @@ class ChatBot  {
     newMessage.className = 'row-chat d-flex user';
     newMessage.innerHTML = `
       <div class="logo-user-chat logo-chat">
-        <img src="${this.componentProps.iconUser || "images/user.png"}" alt="">
+        <img src="${this.componentProps.iconUser}" alt="">
       </div>
       <div class="name-chat-message">
         <div class="all-message">
@@ -354,10 +361,10 @@ class ChatBot  {
     newMessage.className = 'row-chat d-flex bot';
     newMessage.innerHTML = `
       <div class="logo-user-chat logo-chat">
-        <img src="${this.componentProps.iconBot || "images/icon-gs.png"}" alt="">
+        <img src="${this.componentProps.iconBot}" alt="">
       </div>
       <div class="name-chat-message">
-        <div class="name-user">${this.componentProps.nameBotShowChat || "Bot"}</div>
+        <div class="name-user">${this.componentProps.nameBotShowChat}</div>
         <div class="all-message">
           <div class="pure-message">${replyMessage}</div>
         </div>
